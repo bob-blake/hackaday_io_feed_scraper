@@ -7,7 +7,6 @@
 // Date: April 30, 2015
 
 // NOTE: several quick updates don't necessarily make several posts on the feed - the time just updates
-// TODO: Handle situations where there ARE no posts with the feed-time exactly equal to "an hour ago"
 // TODO: Error checking and handling!
 
 require("vars.php");
@@ -30,7 +29,7 @@ while($finished == 0 && $pagenum < 20){ // Max 20 pages (arbitrarily large, just
     // Parse time of post
     $post_time_str = pq($feed_item)->find(".feed-time")->html();
 
-    if(strpos($post_time_str,"hour") || strpos($post_time_str,"day")){   // Only grab an hour of posts to get to-the-minute precision
+    if(strpos($post_time_str,"hour") || strpos($post_time_str,"day")){   // Only grab 45 minutes of posts to get to-the-minute precision
       $finished = 1;    
       break;
     }

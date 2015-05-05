@@ -33,7 +33,7 @@ while($finished == 0 && $pagenum < 20){ // Max 20 pages (arbitrarily large, just
     // Parse time of post
     $post_time_str = pq($feed_item)->find(".feed-time")->html();
 
-    if(strpos($post_time_str,"hour") || strpos($post_time_str,"day")){   // Only grab an hour of posts to get to-the-minute precision
+    if(strpos($post_time_str,"hour") || strpos($post_time_str,"day")){   // Only grab 45 minutes of posts to get to-the-minute precision
       $finished = 1;    
       break;
     }
